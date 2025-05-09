@@ -5,25 +5,30 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Yala Tamrin Admin Panel">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="yala_tamrin_admin">
+  <meta name="apple-mobile-web-app-title" content="Yala Tamrin Admin">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>yala_tamrin_admin</title>
+  <title>Yala Tamrin Admin</title>
   <link rel="manifest" href="manifest.json">
+  
+  <!-- Preload Firebase SDKs -->
+  <link rel="preload" href="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js" as="script">
+  <link rel="preload" href="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js" as="script">
 </head>
 <body>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
+  
+  <!-- Firebase Initialization -->
   <script>
-    // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyBOEhNRn3-HuikYSa9HCPeD7K_OZoIxoFA",
       authDomain: "yala-tamrin.firebaseapp.com",
@@ -38,6 +43,19 @@
     const app = firebase.initializeApp(firebaseConfig);
     const analytics = firebase.analytics();
   </script>
+
+<script>
+  document.addEventListener('pointerdown', function(e) {
+    const target = e.target;
+    if (target.tagName.toLowerCase() === 'input' || 
+        target.tagName.toLowerCase() === 'textarea') {
+      e.preventDefault();
+      target.focus();
+    }
+  }, { passive: false });
+</script>
+
+  <!-- Flutter Bootstrap -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
